@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DCT Web-app</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/styles.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="./js/script.js"></script>
+</head>
+
+<body>
+    <div class="main__bg"></div>
+    <div class="main__overlay"></div>
+
+    <section id="main">
+        <div class="container">
+            <div class="main__content">
+                <div class="main__info">
+                    <h1 class="main__title">Стиснення зображень на основі ДКП</h1>
+                    <h3 class="main__descr">Даний веб-сервіс дозволяє зробити візуальне стиснення зображення</h3>
+                </div>
+                <div class="main__upload">
+                    <p>Натисніть, щоб завантажити зображення для аналізу</p>
+                    <button class="btn btn-upload">Завантажити</button>
+                    <input id="file" name="myFile" type="file" class="file_picker">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="analyze">
+        <div class="container">
+            <div class="analyze__content">
+                <div class="analyze__image">
+                    <canvas id="canvas" width="640" height="460"></canvas>
+                </div>
+                <div class="analyze-wrap">
+                    <div class="analyze__navigation">
+                        <div class="analyze__quality">
+                            <label for="quality">Якість:</label>
+                            <input type="input" id="quality" value="5"> %
+                        </div>
+                        <div class="analyze__actions">
+                            <button id="original" class="btn btn-update" disabled="true">Оновити зображення</button>
+                            <button id="compress" class="btn btn-start">Почати перетворення</button>
+                        </div>
+                    </div>
+                    <div class="progress-wrapper">
+                        <p id="progress"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="export">
+                <a class="btn btn-download" id="download" download="compressed_image.jpg" href="">Скачати</a>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

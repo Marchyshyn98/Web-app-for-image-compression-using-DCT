@@ -1,0 +1,387 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Montserrat, sans-serif;
+    color: #fff;
+    font-size: 16px;
+}
+
+body {
+    position: relative;
+    height: 100vh;
+}
+
+.container {
+    width: 93%;
+    margin: auto;
+}
+
+button {
+    outline: none;
+    cursor: pointer;
+}
+
+input {
+    outline: none;
+    height: 30px;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: 800;
+    text-transform: uppercase;
+    width: 70%;
+    margin: auto;
+}
+
+h3 {
+    font-size: 26px;
+    font-weight: 300;
+}
+
+.btn {
+    display: block;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 0;
+    background: #DC143C;
+    color: #fff;
+    animation: pulse 1.3s linear infinite;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 1px;
+    transition: all 0.2s ease-out;
+}
+
+.btn:hover {
+    animation: none;
+    box-shadow: 0 0 15px 10px rgba(220, 20, 60, 0.7);
+}
+
+@-webkit-keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(220, 20, 60, .7), 0 0 0 0 rgba(220, 20, 60, .9);
+    }
+    40% {
+        box-shadow: 0 0 0 15px rgba(220, 20, 60, 0) 0 0 0 0 rgba(220, 20, 60, .8);
+    }
+    80% {
+        box-shadow: 0 0 0 30px rgba(220, 20, 60, 0), 0 0 0 0 rgba(220, 20, 60, .7);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(220, 20, 60, 0), 0 0 0 0 rgba(220, 20, 60, 0)
+    }
+}
+
+.disabled {
+    background: #48101b;
+    color: #797474;
+    cursor: auto;
+}
+
+.btn.disabled:hover {
+    box-shadow: none;
+}
+
+#main {
+    position: relative;
+    padding: 50px 0 0;
+}
+
+#main,
+#analyze {
+    height: 100%;
+}
+
+.main__bg,
+.main__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+}
+
+.main__overlay {
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 0;
+}
+
+.main__bg {
+    background: url(../img/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    filter: blur(2.8px);
+}
+
+.main__content {
+    position: relative;
+    text-align: center;
+}
+
+.main__descr {
+    margin: 70px 0;
+}
+
+.btn-upload {
+    margin: 30px auto 0;
+}
+
+.main__upload p {
+    font-weight: 500;
+}
+
+.file_picker {
+    visibility: hidden;
+}
+
+#analyze {
+    position: relative;
+    display: none;
+    padding: 50px 0;
+}
+
+.analyze__quality {
+    display: flex;
+    align-items: baseline;
+}
+
+.analyze__quality label,
+.analyze__quality input {
+    margin-right: 15px;
+}
+
+.analyze__quality input {
+    border-radius: 2px;
+    border: 0;
+    width: 150px;
+}
+
+.analyze__quality,
+#quality {
+    font-weight: 600;
+}
+
+#quality {
+    text-align: center;
+    font-size: 18px;
+    color: #000;
+}
+
+.analyze__actions {
+    margin: 30px 0 0;
+    display: flex;
+}
+
+.export {
+    display: none;
+    margin-top: 100px;
+    justify-content: center;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.analyze__actions button,
+.btn-download {
+    width: auto;
+    height: auto;
+    border-radius: 4px;
+    padding: 15px 40px;
+    animation: none;
+    letter-spacing: 0.3px;
+    font-weight: 500;
+    line-height: 22px;
+}
+
+.btn-download {
+    width: 500px;
+    padding: 25px 0;
+    text-decoration: none;
+}
+
+.analyze__actions button:hover {
+    box-shadow: 0 0 15px 5px rgba(220, 20, 60, 0.7);
+}
+
+.analyze__actions button:first-child {
+    margin-right: 15px;
+}
+
+.analyze__content {
+    display: flex;
+    align-items: center;
+}
+
+.analyze__image {
+    margin-right: 100px;
+}
+
+.analyze__image canvas {
+    border-radius: 3px;
+    box-shadow: 0 0 15px 5px rgba(220, 20, 60, 0.5);
+}
+
+#progress {
+    text-align: center;
+    margin-top: 130px;
+}
+
+@media screen and (max-width: 1400px) {
+    .analyze__actions {
+        flex-direction: column;
+    }
+    .analyze__actions button:first-child {
+        margin: 0 0 15px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    canvas {
+        width: 520px;
+        height: 380px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .export {
+        margin-top: 50px;
+    }
+    .btn-download {
+        width: 300px;
+        padding: 20px 0;
+    }
+    canvas {
+        width: 600px;
+        height: 420px;
+    }
+    .analyze__content {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .analyze__image {
+        margin: 0 0 20px;
+    }
+    .analyze__quality {
+        justify-content: center;
+    }
+    .analyze__actions {
+        flex-direction: row;
+    }
+    .analyze__actions button:first-child {
+        margin: 0 15px 0;
+    }
+    .analyze__actions button {
+        padding: 12px 20px;
+    }
+    #progress {
+        margin-top: 50px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    canvas {
+        width: 550px;
+        height: 380px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .btn-download {
+        height: auto !important;
+        padding: 15px 0;
+    }
+    h1 {
+        font-size: 30px;
+        width: 100%;
+    }
+    h3 {
+        font-size: 20px;
+    }
+    #main {
+        padding-top: 35px;
+    }
+    .main__descr {
+        margin: 50px 0;
+    }
+    * {
+        font-size: 14px;
+    }
+    .btn {
+        width: 150px;
+        height: 150px;
+    }
+    @-webkit-keyframes pulse {
+        0% {
+            box-shadow: 0 0 0 0 rgba(220, 20, 60, .7), 0 0 0 0 rgba(220, 20, 60, .9);
+        }
+        40% {
+            box-shadow: 0 0 0 12px rgba(220, 20, 60, 0) 0 0 0 0 rgba(220, 20, 60, .8);
+        }
+        80% {
+            box-shadow: 0 0 0 24px rgba(220, 20, 60, 0), 0 0 0 0 rgba(220, 20, 60, .7);
+        }
+        100% {
+            box-shadow: 0 0 0 0 rgba(220, 20, 60, 0), 0 0 0 0 rgba(220, 20, 60, 0)
+        }
+    }
+    canvas {
+        width: 350px;
+        height: 230px;
+    }
+    .analyze__actions {
+        flex-direction: column;
+    }
+    .analyze__actions button:first-child {
+        margin: 0 0 15px;
+    }
+    #quality {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    h1 {
+        font-size: 28px;
+    }
+    .main__descr {
+        margin: 40px 0;
+    }
+}
+
+@media screen and (max-width: 330px) {
+    h1 {
+        font-size: 26px;
+    }
+    h3 {
+        font-size: 18px;
+    }
+    .main__descr {
+        margin: 30px 0;
+    }
+    #main {
+        padding-top: 25px;
+    }
+    canvas {
+        width: 300px;
+        height: 200px;
+    }
+}
+
+
+/* for a while */
+
+
+/* #main {
+    display: none;
+}
+
+#analyze {
+    display: block;
+} */
